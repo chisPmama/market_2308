@@ -45,7 +45,4 @@ describe Vendor do
     end
   end
 
-#   describe "Iteration II" do
-
-#   end
 end

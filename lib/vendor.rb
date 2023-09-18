@@ -18,6 +18,10 @@ class Vendor
     @inventory[item]
   end
 
+  def potential_revenue
+    pot_rev = @inventory.to_a.map{|item| item[0].price * (item[1].to_f)}.sum
+  end
+
 end
 
 # require 'pry';binding.pry

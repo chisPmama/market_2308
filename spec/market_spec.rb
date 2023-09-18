@@ -12,7 +12,7 @@ describe Market do
       @item2 = Item.new({name: 'Tomato', price: '$0.50'})
       @item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
       @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
-      @vendor = Vendor.new("Rocky Mountain Fresh")
+      @vendor1 = Vendor.new("Rocky Mountain Fresh")
       @vendor1.stock(@item1, 35)   
       @vendor1.stock(@item2, 7)
       @vendor2 = Vendor.new("Ba-Nom-a-Nom")   
@@ -29,7 +29,8 @@ describe Market do
     end
 
     it 'can stock items for Vendor 1' do
-      expect(@vendor1.check_stock(@item1)).to eq(42)
+      expect(@vendor1.check_stock(@item1)).to eq(35)
+      expect(@vendor1.check_stock(@item2)).to eq(7)
     end
 
     it 'can stock items for Vendor 2' do
@@ -40,10 +41,11 @@ describe Market do
 
     it 'can stock items for Vendor 3' do
       expect(@vendor3.inventory.count).to eq(1)
-      expect(@vendor2.check_stock(@item1)).to eq(65)
+      expect(@vendor3.check_stock(@item1)).to eq(65)
     end
 
   end
+
   describe "Iteration II Part 2" do
     before(:each) do
       @market = Market.new("South Pearl Street Farmers Market")  
@@ -51,7 +53,7 @@ describe Market do
       @item2 = Item.new({name: 'Tomato', price: '$0.50'})
       @item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
       @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
-      @vendor = Vendor.new("Rocky Mountain Fresh")
+      @vendor1 = Vendor.new("Rocky Mountain Fresh")
       @vendor1.stock(@item1, 35)   
       @vendor1.stock(@item2, 7)
       @vendor2 = Vendor.new("Ba-Nom-a-Nom")   
@@ -87,8 +89,6 @@ describe Market do
       expect(@vendor2.potential_revenue).to eq(345.00)
       expect(@vendor3.potential_revenue).to eq(48.75)
     end
-  end
-
 
   end
 end
